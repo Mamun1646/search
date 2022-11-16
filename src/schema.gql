@@ -1,0 +1,23 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Verses {
+  id: String!
+  text: String!
+  translation: String!
+}
+
+type Quran {
+  _id: String!
+  id: String!
+  transliteration: String!
+  translation: String!
+  type: String!
+  total_verses: String!
+  verses: [Verses!]!
+}
+
+type Query {
+  Quran: [Quran!]!
+}
