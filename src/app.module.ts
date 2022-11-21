@@ -5,6 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { QuranModule } from './quran/quran.module';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
+import { NoteModule } from './note/note.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { join } from 'path';
     }),
     MongooseModule.forRoot('mongodb://localhost/quran-sharif'),
     QuranModule,
+    NoteModule,
   
   ],
   controllers: [],

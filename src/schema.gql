@@ -18,6 +18,31 @@ type Quran {
   verses: [Verses!]!
 }
 
+type Note {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
 type Query {
   Quran: [Quran!]!
+  Surah_Name(surah_name: String!): [Quran!]!
+  keySearch(key: String!): [Quran!]!
+  note(id: Int!): Note!
+}
+
+type Mutation {
+  createNote(createNoteInput: CreateNoteInput!): Note!
+  updateNote(updateNoteInput: UpdateNoteInput!): Note!
+  removeNote(id: Int!): Note!
+}
+
+input CreateNoteInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input UpdateNoteInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
 }

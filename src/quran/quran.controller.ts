@@ -13,10 +13,7 @@ export class QuranController {
     return this.quranService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.quranService.findOne(+id);
-  }
+
 
  
 
