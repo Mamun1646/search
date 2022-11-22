@@ -1,8 +1,10 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { NoteService } from './note.service';
-import { Note } from './entities/note.entity';
+import { Note } from './schema/note.schema';
 import { CreateNoteInput } from './dto/create-note.input';
 import { UpdateNoteInput } from './dto/update-note.input';
+import { Param } from '@nestjs/common';
+
 
 @Resolver(() => Note)
 export class NoteResolver {
@@ -17,19 +19,12 @@ export class NoteResolver {
   findAll() {
     return this.noteService.findAll();
   }
-
-  @Query(() => Note, { name: 'note' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
-    return this.noteService.findOne(id);
+  @Query(() => [Note])
+  async Search_Note(@Args('note_text') note: string): Promise<Note[]> {
+    return await this.noteService.Search_Note(note);
   }
-
-  @Mutation(() => Note)
-  updateNote(@Args('updateNoteInput') updateNoteInput: UpdateNoteInput) {
-    return this.noteService.update(updateNoteInput.id, updateNoteInput);
-  }
-
-  @Mutation(() => Note)
-  removeNote(@Args('id', { type: () => Int }) id: number) {
-    return this.noteService.remove(id);
+  @Query(() => [Note])
+  async filterNote(@Args('day') day: Number) {
+    return await this.noteService.filterNote(day);
   }
 }

@@ -14,35 +14,38 @@ type Quran {
   transliteration: String!
   translation: String!
   type: String!
-  total_verses: String!
+  total_verses: String
   verses: [Verses!]!
 }
 
 type Note {
-  """Example field (placeholder)"""
-  exampleField: Int!
+  _id: String!
+  username: String
+  surah: Float
+  verse: Float
+  note: String
+  day: Float
+  month: Float
 }
 
 type Query {
   Quran: [Quran!]!
   Surah_Name(surah_name: String!): [Quran!]!
   keySearch(key: String!): [Quran!]!
-  note(id: Int!): Note!
+  note: [Note!]!
+  Search_Note(note_text: String!): [Note!]!
+  filterNote(day: Float!): [Note!]!
 }
 
 type Mutation {
   createNote(createNoteInput: CreateNoteInput!): Note!
-  updateNote(updateNoteInput: UpdateNoteInput!): Note!
-  removeNote(id: Int!): Note!
 }
 
 input CreateNoteInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
-}
-
-input UpdateNoteInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-  id: Int!
+  username: String
+  surah: Float
+  verse: Float
+  note: String
+  day: Float
+  month: Float
 }

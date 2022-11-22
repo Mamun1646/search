@@ -11,7 +11,7 @@ export class Quran {
   _id: mongoose.Types.ObjectId;
   @Field(() => String)
   @Prop()
-  id: string;
+  id?: string;
   @Field(() => String)
   @Prop()
   transliteration: string;
@@ -21,9 +21,9 @@ export class Quran {
   @Field(() => String)
   @Prop()
   type: string;
-  @Field(() => String)
+  @Field(() => String,{nullable:true})
   @Prop()
-  total_verses: number;
+  total_verses?: number;
    @Field(() => [Verses])
   @Prop([{ type: raw({ ...Verses }) }])
   verses?: Verses[];
