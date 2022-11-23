@@ -28,8 +28,10 @@ export class NoteService {
   }
   filter(@Param() param) {
     const d = new Date();
+    
     const day = d.getDate() - param;
+    
 
-    return this.noteModel.find({ day: { $gte: day } });
+    return this.noteModel.find({ day: { $gt: day } });
   }
 }

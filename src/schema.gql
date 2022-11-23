@@ -26,6 +26,7 @@ type Note {
   note: String
   day: Float
   month: Float
+  date: String
 }
 
 type Query {
@@ -48,4 +49,5 @@ input CreateNoteInput {
   note: String
   day: Float
   month: Float
+  date: String
 }

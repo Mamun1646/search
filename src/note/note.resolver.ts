@@ -25,6 +25,6 @@ export class NoteResolver {
   }
   @Query(() => [Note])
   async filterNote(@Args('day') day: Number) {
-    return await this.noteService.filterNote(day);
+    return await this.noteService.filter(day);
   }
 }

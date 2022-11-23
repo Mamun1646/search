@@ -25,6 +25,9 @@ export class Note {
   @Prop()
   @Field(() => Number, { nullable: true })
   month?: number;
+  @Prop()
+  @Field(() => String, { nullable: true })
+  date?: string;
 }
 
 export const NoteSchema = SchemaFactory.createForClass(Note)

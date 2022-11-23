@@ -32,18 +32,18 @@ export class QuranService {
       {
         verses: {
           $elemMatch: {
-            translation:
-              'He will say, "My Lord, why have you raised me blind while I was [once] seeing',
+            translation: { $regex: regex },
           },
         },
         _id: 0,
-        
-        
+        transliteration: 1,
+        translation: 1,
+        id:1
       },
     );
 
 
-     console.log(result)
+
     return result;
   }
 

@@ -14,4 +14,6 @@ export class CreateNoteInput {
   day?: number;
   @Field(() => Number, { nullable: true })
   month?: number;
+  @Field(() => String, { nullable: true })
+  date?:string;
 }
