@@ -17,7 +17,7 @@ import { NoteModule } from './note/note.module';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
     }),
-    MongooseModule.forRoot('mongodb+srv://quran:1234@cluster0.kemb19w.mongodb.net/test'),
+    MongooseModule.forRoot('mongodb+srv://quran:1234@cluster0.kemb19w.mongodb.net/quran-sharif'),
     QuranModule,
     NoteModule,
   
