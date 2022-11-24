@@ -6,9 +6,10 @@ import { QuranModule } from './quran/quran.module';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { NoteModule } from './note/note.module';
-
+import { AppController } from './app.controller';
 @Module({
   imports: [
+
 
   GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
@@ -22,7 +23,7 @@ import { NoteModule } from './note/note.module';
     NoteModule,
   
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule {}
