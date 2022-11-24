@@ -2,7 +2,7 @@ import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { NoteService } from './note.service';
 import { CreateNoteInput } from './dto/create-note.input';
 
-@Controller()
+@Controller('note')
 export class NoteController {
   constructor(private readonly noteService: NoteService) {}
 
