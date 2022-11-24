@@ -16,6 +16,7 @@ import { AppController } from './app.controller';
       debug: false,
       playground: false,
        cache: 'bounded',
+       ersistedQueries: false,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
     }),
