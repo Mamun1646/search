@@ -10,11 +10,11 @@ export class NoteController {
   findNote() {
     return this.noteService.findAll();
   }
-    @Get(":day")
-    filter(@Param() param) {
-        console.log(param.day)
-        return this.noteService.filter(param.day);
-  }
+  //   @Get(":day")
+  //   filter(@Param() param) {
+  //       console.log(param.day)
+  //       return this.noteService.filter(param.day);
+  // }
   @Post()
   createNote(@Body() createNoteInput: CreateNoteInput) {
     return this.noteService.create(createNoteInput);
