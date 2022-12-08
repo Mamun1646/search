@@ -19,6 +19,7 @@ export class NoteService {
   }
   async Search_Note(data: string): Promise<Note[]> {
     const regex = new RegExp(data, 'i');
+
     return await this.noteModel.find({
       note: { $regex: regex },
     });
@@ -28,6 +29,7 @@ export class NoteService {
   }
   filter(@Param() param) {
     const d = new Date();
+    console.log(d);
     
     const day = d.getDate() - param;
     

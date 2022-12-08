@@ -10,7 +10,8 @@ type Verses {
 
 type Quran {
   _id: String!
-  id: String!
+  id: Float!
+  name: String!
   transliteration: String!
   translation: String!
   type: String!
@@ -27,6 +28,18 @@ type Note {
   day: Float
   month: Float
   date: String
+}
+
+type Translator {
+  id: Float!
+  name: String!
+  language: String!
+}
+
+type Verse {
+  id: String!
+  text: String!
+  translation: String!
 }
 
 type Query {

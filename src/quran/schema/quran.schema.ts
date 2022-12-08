@@ -9,9 +9,12 @@ export type QuranDocument = Quran & Document;
 export class Quran {
   @Field(() => String)
   _id: mongoose.Types.ObjectId;
+  @Field(() => Number)
+  @Prop()
+  id?: number;
   @Field(() => String)
   @Prop()
-  id?: string;
+  name?: string;
   @Field(() => String)
   @Prop()
   transliteration: string;
@@ -21,10 +24,10 @@ export class Quran {
   @Field(() => String)
   @Prop()
   type: string;
-  @Field(() => String,{nullable:true})
+  @Field(() => String, { nullable: true })
   @Prop()
   total_verses?: number;
-   @Field(() => [Verses])
+  @Field(() => [Verses])
   @Prop([{ type: raw({ ...Verses }) }])
   verses?: Verses[];
 }

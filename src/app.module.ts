@@ -8,12 +8,15 @@ import { join } from 'path';
 import { ConfigModule } from '@nestjs/config';
 import { NoteModule } from './note/note.module';
 import { AppController } from './app.controller';
+import { QuranService } from './quran/quran.service';
+import { DatabaseModule } from './database/database.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: '.local.env',
-      //envFilePath:".prod.env"
+      // envFilePath:".prod.env"
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
@@ -24,16 +27,17 @@ import { AppController } from './app.controller';
 
       // playground: true,
       //  cache: 'bounded',
-       //ersistedQueries: false,
+      //ersistedQueries: false,
 
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-   plugins: [ApolloServerPluginLandingPageLocalDefault()],
+      plugins: [ApolloServerPluginLandingPageLocalDefault()],
     }),
     MongooseModule.forRoot(process.env.MONGO_URL),
     QuranModule,
     NoteModule,
+    DatabaseModule,
   ],
   controllers: [AppController],
-  providers: [],
+  providers: [QuranService],
 })
 export class AppModule {}

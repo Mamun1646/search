@@ -9,7 +9,10 @@ import { QuranResolver } from './quran.resolver';
   imports: [
     MongooseModule.forFeature([{ name: Quran.name, schema: QuranSchema }]),
   ],
+  exports: [
+    MongooseModule.forFeature([{ name: Quran.name, schema: QuranSchema }]),
+  ],
   controllers: [QuranController],
-  providers: [QuranService,QuranResolver],
+  providers: [QuranService, QuranResolver],
 })
 export class QuranModule {}

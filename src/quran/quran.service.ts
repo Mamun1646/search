@@ -9,8 +9,19 @@ export class QuranService {
     @InjectModel(Quran.name) private quranModel: Model<QuranDocument>,
   ) { }
 
+  async findSurah(id:number) {
+    console.log(typeof (id))
+  
+    
+    const ans = await this.quranModel.findOne({ id: id }).exec();
+
+    return ans;
+  }
   async findAll() {
-    return await this.quranModel.find();
+    const ans = await this.quranModel.find();
+    console.log(typeof(ans[0].id))
+    return ans;
+    
   }
 
   async versesFindBySurah(data: string): Promise<Quran[]> {
@@ -38,7 +49,8 @@ export class QuranService {
         _id: 0,
         transliteration: 1,
         translation: 1,
-        id:1
+        id: 1,
+        
       },
     );
 
