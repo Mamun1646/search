@@ -1,15 +1,22 @@
-import { Controller, Get, Injectable } from '@nestjs/common';
-
+import { Controller, Get, Param } from '@nestjs/common';
 import { DatabaseService } from './database.service';
+import { Translation } from './schema/database.schema';
 
 
-@Injectable()
 @Controller('database')
 export class DatabaseController {
-  constructor(private readonly databaseService: DatabaseService) {}
+  constructor(private readonly databaseService: DatabaseService) { }
+  
+
   @Get('translation-import')
-  async findAll() {
-   return  await this.databaseService.findSurah( );
-    
+  async translationImport() {
+    const translator = {
+      id: 2,
+      name: 'Ar Berry',
+      language: 'en',
+    };
+    return await this.databaseService.insertTranslations(translator);
   }
+
+
 }

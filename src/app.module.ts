@@ -10,6 +10,7 @@ import { NoteModule } from './note/note.module';
 import { AppController } from './app.controller';
 import { QuranService } from './quran/quran.service';
 import { DatabaseModule } from './database/database.module';
+import { ImporterModule } from './translatations-import/Importer.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { DatabaseModule } from './database/database.module';
     QuranModule,
     NoteModule,
     DatabaseModule,
+    ImporterModule,
   ],
   controllers: [AppController],
   providers: [QuranService],

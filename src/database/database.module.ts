@@ -5,6 +5,7 @@ import { DatabaseController } from './database.controller';
 import { Translation, TranslationSchema } from './schema/database.schema';
 import { Quran, QuranSchema } from 'src/quran/schema/quran.schema';
 import { Translator, TranslatorSchema } from './schema/translator.schema';
+import { VerseSearchController } from './verse-search.controller';
 
 @Module({
   imports: [
@@ -17,7 +18,7 @@ import { Translator, TranslatorSchema } from './schema/translator.schema';
     ]),
   ],
 
-  controllers: [DatabaseController],
+  controllers: [DatabaseController, VerseSearchController],
   providers: [DatabaseService],
 })
 export class DatabaseModule {}

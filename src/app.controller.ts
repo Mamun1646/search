@@ -3,7 +3,7 @@ import {
   Get,
 
 } from '@nestjs/common';
-import {data} from './data/ahmedALi.js';
+import {data} from './data/ahmedali.js';
 import { QuranService } from './quran/quran.service.js';
 
 
